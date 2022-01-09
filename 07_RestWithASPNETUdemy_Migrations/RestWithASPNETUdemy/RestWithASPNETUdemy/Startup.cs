@@ -39,7 +39,6 @@ namespace RestWithASPNETUdemy
 
             string mysqlConnectionstr = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<MySQLContext>(options => options.UseMySql(mysqlConnectionstr, ServerVersion.AutoDetect(mysqlConnectionstr)));
-            services.AddDbContext<BookContext>(options => options.UseMySql(mysqlConnectionstr, ServerVersion.AutoDetect(mysqlConnectionstr)));
 
             if (Environment.IsDevelopment())
             {

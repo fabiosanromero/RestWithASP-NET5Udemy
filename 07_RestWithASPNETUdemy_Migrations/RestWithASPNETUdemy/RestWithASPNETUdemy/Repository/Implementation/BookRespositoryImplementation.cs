@@ -9,9 +9,9 @@ namespace RestWithASPNETUdemy.Repository.Implementation
 {
     public class BookRepositoryImplementation : IBookRepository
     {
-        private BookContext _context;
+        private MySQLContext _context;
 
-        public BookRepositoryImplementation(BookContext context)
+        public BookRepositoryImplementation(MySQLContext context)
         {
             _context = context;
         }
