@@ -1,16 +1,15 @@
-﻿using RestWithASPNETUdemy.Model;
+﻿using RestWithASPNETUdemy.Data.DTO;
+using RestWithASPNETUdemy.Model;
 using System.Collections.Generic;
 
 namespace RestWithASPNETUdemy.Business
 {
     public interface IBookBusiness
     {
-        Book Create(Book book);
-        Book FindById(long id);
-        List<Book> FindAll();
-        Book Update(Book book);
+        BookDTO Create(BookDTO book);
+        BookDTO FindById(long id);
+        List<BookDTO> FindAll();
+        BookDTO Update(BookDTO book);
         void Delete(long id);
-
-
     }
 }

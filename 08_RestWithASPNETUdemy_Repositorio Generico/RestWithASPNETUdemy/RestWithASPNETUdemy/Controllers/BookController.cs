@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using RestWithASPNETUdemy.Model;
 using RestWithASPNETUdemy.Business;
+using RestWithASPNETUdemy.Data.DTO;
 
 namespace RestWithASPNETUdemy.Controllers
 {
@@ -35,14 +36,14 @@ namespace RestWithASPNETUdemy.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Book book)
+        public IActionResult Post([FromBody] BookDTO book)
         {
             if (book == null) return BadRequest();
             return Ok(_bookBusiness.Create(book));
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] Book book)
+        public IActionResult Put([FromBody] BookDTO book)
         {
             if (book == null) return BadRequest();
             return Ok(_bookBusiness.Update(book));
