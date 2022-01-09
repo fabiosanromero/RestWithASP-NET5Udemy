@@ -4,33 +4,33 @@ using System.Collections.Generic;
 
 namespace RestWithASPNETUdemy.Business.Implementation
 {
-    public class PersonBusinessImplementation : IPersonBusiness
+    public class BookBusinessImplementation : IBookBusiness
     {
-        private readonly IPersonRepository _repository;
+        private readonly IBookRepository _repository;
 
-        public PersonBusinessImplementation(IPersonRepository repository)
+        public BookBusinessImplementation(IBookRepository repository)
         {
             _repository = repository;
         }
 
-        public List<Person> FindAll()
+        public List<Book> FindAll()
         {
             return _repository.FindAll();
         }
 
-        public Person FindById(long id)
+        public Book FindById(long id)
         {
             return _repository.FindById(id);
         }
 
-        public Person Create(Person person)
+        public Book Create(Book book)
         {
-            return _repository.Create(person);
+            return _repository.Create(book);
         }
 
-        public Person Update(Person person)
+        public Book Update(Book book)
         {
-            return _repository.Update(person);
+            return _repository.Update(book);
         }
 
         public void Delete(long id)
