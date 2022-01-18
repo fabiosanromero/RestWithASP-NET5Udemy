@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using RestWithASPNETUdemy.Data.DTO;
 using RestWithASPNETUdemy.Model;
 using RestWithASPNETUdemy.Model.Context;
-using RestWithASPNETUdemy.Repository;
 
 namespace RestWithASPNETUdemy.Repository
 {
@@ -27,6 +24,19 @@ namespace RestWithASPNETUdemy.Repository
             return _context.Users.FirstOrDefault(u=>(u.UserName==user.UserName) && (u.Password==pass));
         }
 
+
+        public User ValidateCredentials(string username)
+        {
+            return _context.Users.SingleOrDefault(u => (u.UserName == username));
+        }
+        public bool RevokeToken(string username)
+        {
+            var user= _context.Users.SingleOrDefault(u => (u.UserName == username));
+            if (user is null) return false;
+            user.RefreshToken = null;
+            _context.SaveChanges();
+            return true;
+        }
         private string ComputeHash(string password, SHA256CryptoServiceProvider algorithm)
         {
             Byte[] inputBytes = Encoding.UTF8.GetBytes(password);
