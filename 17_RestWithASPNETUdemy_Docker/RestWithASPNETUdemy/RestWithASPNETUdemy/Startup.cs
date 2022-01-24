@@ -95,7 +95,7 @@ namespace RestWithASPNETUdemy
 
             //if (Environment.IsDevelopment())
             //{
-            //    MigrateDatabase(mysqlConnectionstr);
+                MigrateDatabase(mysqlConnectionstr);
             //}
 
 
